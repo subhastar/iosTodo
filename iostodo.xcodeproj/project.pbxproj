@@ -21,6 +21,7 @@
 		D5402FD718933292008F1109 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D5402FD518933292008F1109 /* InfoPlist.strings */; };
 		D5402FD918933292008F1109 /* iostodoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D5402FD818933292008F1109 /* iostodoTests.m */; };
 		D5402FE41893334E008F1109 /* TodoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5402FE31893334E008F1109 /* TodoViewController.m */; };
+		D5402FE718933400008F1109 /* TodoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D5402FE618933400008F1109 /* TodoCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,8 @@
 		D5402FD818933292008F1109 /* iostodoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iostodoTests.m; sourceTree = "<group>"; };
 		D5402FE21893334E008F1109 /* TodoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodoViewController.h; sourceTree = "<group>"; };
 		D5402FE31893334E008F1109 /* TodoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodoViewController.m; sourceTree = "<group>"; };
+		D5402FE518933400008F1109 /* TodoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodoCell.h; sourceTree = "<group>"; };
+		D5402FE618933400008F1109 /* TodoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodoCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +122,8 @@
 				D5402FB418933292008F1109 /* Supporting Files */,
 				D5402FE21893334E008F1109 /* TodoViewController.h */,
 				D5402FE31893334E008F1109 /* TodoViewController.m */,
+				D5402FE518933400008F1109 /* TodoCell.h */,
+				D5402FE618933400008F1109 /* TodoCell.m */,
 			);
 			path = iostodo;
 			sourceTree = "<group>";
@@ -252,6 +257,7 @@
 				D5402FE41893334E008F1109 /* TodoViewController.m in Sources */,
 				D5402FBE18933292008F1109 /* AppDelegate.m in Sources */,
 				D5402FBA18933292008F1109 /* main.m in Sources */,
+				D5402FE718933400008F1109 /* TodoCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -25,7 +25,6 @@
 
 - (void)viewDidLoad
 {
-    NSLog(@"hello! inside view did load.");
     [super viewDidLoad];
 
     // Uncomment the following line to preserve selection between presentations.

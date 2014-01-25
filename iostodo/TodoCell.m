@@ -8,7 +8,15 @@
 
 #import "TodoCell.h"
 
+@interface TodoCell ()
+- (IBAction)editingEnd:(id)sender;
+
+@end
+
 @implementation TodoCell
+
+@synthesize todoController;
+@synthesize tableView;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -26,4 +34,10 @@
     // Configure the view for the selected state
 }
 
+- (IBAction)editingEnd:(id)sender {
+    NSLog(@"editing end.");
+    CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.tableView];
+    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
+    [todoController saveText:self.textField.text ForCell:indexPath.row];
+}
 @end

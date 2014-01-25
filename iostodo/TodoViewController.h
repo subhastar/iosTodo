@@ -10,4 +10,6 @@
 
 @interface TodoViewController : UITableViewController
 
+- (void)saveText:(NSString*) text ForCell:(int)row;
+
 @end

@@ -75,6 +75,8 @@
     // Configure the cell...
     cell.textField.text = self.todoItems[indexPath.row];
     cell.showsReorderControl = YES;
+    cell.todoController = self;
+    cell.tableView = tableView;
     
     return cell;
 }
@@ -84,6 +86,25 @@
     NSString *temp = self.todoItems[destinationIndexPath.row];
     self.todoItems[destinationIndexPath.row] = self.todoItems[sourceIndexPath.row];
     self.todoItems[sourceIndexPath.row] = temp;
+}
+
+- (float)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    float CELL_CONTENT_WIDTH = 320.0f;
+    float CELL_CONTENT_MARGIN = 10.0f;
+    float FONT_SIZE = 14.0f;
+    
+    NSString *text = self.todoItems[indexPath.row];
+    
+    CGSize constraint = CGSizeMake(CELL_CONTENT_WIDTH - (CELL_CONTENT_MARGIN * 2), 20000.0f);
+    
+    CGSize size = [text sizeWithFont:[UIFont systemFontOfSize:FONT_SIZE] constrainedToSize:constraint lineBreakMode:UILineBreakModeWordWrap];
+    
+    CGFloat height = MAX(size.height, 44.0f);
+    
+    float result = height + (CELL_CONTENT_MARGIN * 2);
+    NSLog(@"%d : %f", indexPath.row, height);
+    return result;
 }
 
 /*
@@ -143,6 +164,11 @@
 
 - (void)addItem:sender {
     [self.todoItems addObject:@""];
+    [self.tableView reloadData];
+}
+
+- (void)saveText:(NSString*) text ForCell:(int)row {
+    self.todoItems[row] = text;
     [self.tableView reloadData];
 }
 

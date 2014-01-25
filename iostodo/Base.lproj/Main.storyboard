@@ -34,18 +34,10 @@
                                 </connections>
                             </tableViewCell>
                         </prototypes>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="qSE-TQ-Lps" appends="YES" id="cxv-lu-Fzq"/>
-                        </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="To Do List" id="KmY-hV-HhW"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EVH-3o-cLE" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="qSE-TQ-Lps">
-                    <connections>
-                        <action selector="onTap:" destination="Bzg-ww-V2l" id="Lss-M9-9aa"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="830" y="43"/>
         </scene>

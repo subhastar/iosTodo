@@ -14,8 +14,6 @@
 @property(nonatomic, strong) NSMutableArray *todoItems;
 @property(nonatomic, strong) UIBarButtonItem *addButton;
 
-- (IBAction)onTap:(id)sender;
-
 @end
 
 @implementation TodoViewController
@@ -39,6 +37,8 @@
                                   initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self
                                   action:@selector(addItem:)];
     self.navigationItem.rightBarButtonItem = self.addButton;
+    
+    self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -87,19 +87,18 @@
 }
 */
 
-/*
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
+        [self.todoItems removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }   
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
-*/
 
 /*
 // Override to support rearranging the table view.
@@ -133,10 +132,6 @@
     [self.todoItems addObject:@""];
     [self.tableView reloadData];
 }*/
-
-- (IBAction)onTap:(id)sender {
-    [self.view endEditing:YES];
-}
 
 - (void)addItem:sender {
     [self.todoItems addObject:@""];

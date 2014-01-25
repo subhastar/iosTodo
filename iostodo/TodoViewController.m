@@ -74,8 +74,16 @@
     
     // Configure the cell...
     cell.textField.text = self.todoItems[indexPath.row];
+    cell.showsReorderControl = YES;
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath
+                                                               *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
+    NSString *temp = self.todoItems[destinationIndexPath.row];
+    self.todoItems[destinationIndexPath.row] = self.todoItems[sourceIndexPath.row];
+    self.todoItems[sourceIndexPath.row] = temp;
 }
 
 /*

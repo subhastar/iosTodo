@@ -7,11 +7,12 @@
 //
 
 #import "TodoViewController.h"
+#import "TodoCell.h"
 
 @interface TodoViewController ()
 
-@property(nonatomic, strong) NSArray *todoItems;
-
+@property(nonatomic, strong) NSMutableArray *todoItems;
+- (IBAction)plusAction:(id)sender;
 @end
 
 @implementation TodoViewController
@@ -28,6 +29,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.todoItems = [[NSMutableArray alloc] init];
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -59,9 +62,10 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"TodoCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    TodoCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
+    cell.textField.text = self.todoItems[indexPath.row];
     
     return cell;
 }
@@ -117,4 +121,8 @@
 
  */
 
+- (IBAction)plusAction:(id)sender {
+    [self.todoItems addObject:@""];
+    [self.tableView reloadData];
+}
 @end

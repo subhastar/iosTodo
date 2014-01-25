@@ -12,7 +12,8 @@
 @interface TodoViewController ()
 
 @property(nonatomic, strong) NSMutableArray *todoItems;
-- (IBAction)plusAction:(id)sender;
+@property(nonatomic, strong) UIBarButtonItem *addButton;
+
 - (IBAction)onTap:(id)sender;
 
 @end
@@ -33,6 +34,11 @@
     [super viewDidLoad];
     
     self.todoItems = [[NSMutableArray alloc] init];
+    
+    self.addButton = [[UIBarButtonItem alloc]
+                                  initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self
+                                  action:@selector(addItem:)];
+    self.navigationItem.rightBarButtonItem = self.addButton;
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -123,12 +129,18 @@
 
  */
 
-- (IBAction)plusAction:(id)sender {
+/*- (IBAction)plusAction:(id)sender {
     [self.todoItems addObject:@""];
     [self.tableView reloadData];
-}
+}*/
 
 - (IBAction)onTap:(id)sender {
     [self.view endEditing:YES];
 }
+
+- (void)addItem:sender {
+    [self.todoItems addObject:@""];
+    [self.tableView reloadData];
+}
+
 @end

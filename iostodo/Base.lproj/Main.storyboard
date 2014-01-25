@@ -38,21 +38,7 @@
                             <outletCollection property="gestureRecognizers" destination="qSE-TQ-Lps" appends="YES" id="cxv-lu-Fzq"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="To Do List" id="KmY-hV-HhW">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="Oem-qO-87q">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Lwi-wH-kxL">
-                                <rect key="frame" x="233" y="5" width="71" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="+">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="plusAction:" destination="Bzg-ww-V2l" eventType="touchDown" id="pmC-Pu-oOa"/>
-                                </connections>
-                            </button>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="To Do List" id="KmY-hV-HhW"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EVH-3o-cLE" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="qSE-TQ-Lps">

@@ -13,6 +13,8 @@
 
 @property(nonatomic, strong) NSMutableArray *todoItems;
 - (IBAction)plusAction:(id)sender;
+- (IBAction)onTap:(id)sender;
+
 @end
 
 @implementation TodoViewController
@@ -124,5 +126,9 @@
 - (IBAction)plusAction:(id)sender {
     [self.todoItems addObject:@""];
     [self.tableView reloadData];
+}
+
+- (IBAction)onTap:(id)sender {
+    [self.view endEditing:YES];
 }
 @end

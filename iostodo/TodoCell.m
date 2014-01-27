@@ -9,7 +9,6 @@
 #import "TodoCell.h"
 
 @interface TodoCell ()
-- (IBAction)editingEnd:(id)sender;
 
 @end
 
@@ -34,10 +33,9 @@
     // Configure the view for the selected state
 }
 
-- (IBAction)editingEnd:(id)sender {
-    NSLog(@"editing end.");
-    CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.tableView];
-    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
-    [todoController saveText:self.textField.text ForCell:indexPath.row];
+- (void) textViewDidEndEditing:(UITextView *)textView
+{
+    NSLog(@"inside text view did end editing.");
+    [todoController saveText:textView.text ForCell:textView.tag];
 }
 @end

@@ -21,19 +21,21 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ciQ-t0-yF4">
-                                            <rect key="frame" x="20" y="7" width="181" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0gl-Rj-dQX">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             <connections>
-                                                <action selector="editingEnd:" destination="4gF-50-gnb" eventType="editingDidEnd" id="n5V-bA-wzU"/>
+                                                <outlet property="delegate" destination="4gF-50-gnb" id="0VT-zc-ufJ"/>
                                             </connections>
-                                        </textField>
+                                        </textView>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="textField" destination="ciQ-t0-yF4" id="D5o-Sz-mhv"/>
+                                    <outlet property="textView" destination="0gl-Rj-dQX" id="E5x-X8-KdB"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

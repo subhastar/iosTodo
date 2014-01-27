@@ -9,9 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "TodoViewController.h"
 
-@interface TodoCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UITextField *textField;
+@interface TodoCell : UITableViewCell <UITextViewDelegate>
 @property (weak, nonatomic) TodoViewController* todoController;
 @property (weak, nonatomic) UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UITextView *textView;
 
 @end

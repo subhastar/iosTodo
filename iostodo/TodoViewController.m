@@ -77,7 +77,8 @@
     TodoCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
-    cell.textField.text = self.todoItems[indexPath.row];
+    cell.textView.text = self.todoItems[indexPath.row];
+    cell.textView.tag = indexPath.row;
     cell.showsReorderControl = YES;
     cell.todoController = self;
     cell.tableView = tableView;

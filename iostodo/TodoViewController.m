@@ -14,6 +14,8 @@
 @property(nonatomic, strong) NSMutableArray *todoItems;
 @property(nonatomic, strong) UIBarButtonItem *addButton;
 
+- (void) saveFile;
+
 @end
 
 @implementation TodoViewController
@@ -32,6 +34,8 @@
     [super viewDidLoad];
     
     self.todoItems = [[NSMutableArray alloc] init];
+    
+    [self.todoItems addObjectsFromArray:[NSArray arrayWithContentsOfFile:@"file"]];
     
     self.addButton = [[UIBarButtonItem alloc]
                                   initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self
@@ -86,6 +90,7 @@
     NSString *temp = self.todoItems[destinationIndexPath.row];
     self.todoItems[destinationIndexPath.row] = self.todoItems[sourceIndexPath.row];
     self.todoItems[sourceIndexPath.row] = temp;
+    [self saveFile];
 }
 
 - (float)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -123,18 +128,13 @@
         // Delete the row from the data source
         [self.todoItems removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        
+        [self saveFile];
     }   
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
 
 /*
 // Override to support conditional rearranging of the table view.
@@ -170,6 +170,11 @@
 - (void)saveText:(NSString*) text ForCell:(int)row {
     self.todoItems[row] = text;
     [self.tableView reloadData];
+    [self saveFile];
+}
+
+- (void) saveFile {
+    [self.todoItems writeToFile:@"file" atomically:YES];
 }
 
 @end

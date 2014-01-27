@@ -96,21 +96,25 @@
 
 - (float)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    float CELL_CONTENT_WIDTH = 320.0f;
-    float CELL_CONTENT_MARGIN = 10.0f;
+    float TEXT_VIEW_WIDTH = 207.0f;
+    float CELL_CONTENT_MARGIN = 8.0f; //top and bottom constraint width.
     float FONT_SIZE = 14.0f;
     
     NSString *text = self.todoItems[indexPath.row];
     
-    CGSize constraint = CGSizeMake(CELL_CONTENT_WIDTH - (CELL_CONTENT_MARGIN * 2), 20000.0f);
+    NSDictionary *attributes = @{NSFontAttributeName: [UIFont systemFontOfSize:FONT_SIZE]};
+
+    CGSize boundingSize = CGSizeMake(TEXT_VIEW_WIDTH, 20000.0f);
     
-    CGSize size = [text sizeWithFont:[UIFont systemFontOfSize:FONT_SIZE] constrainedToSize:constraint lineBreakMode:UILineBreakModeWordWrap];
+    CGRect boundingRect = [text boundingRectWithSize:boundingSize options:NSStringDrawingUsesLineFragmentOrigin  attributes:attributes context:nil];
+    NSLog(@"bounding rect %f", boundingRect.size.height);
     
-    CGFloat height = MAX(size.height, 44.0f);
+    float neededHeight = boundingRect.size.height + CELL_CONTENT_MARGIN * 2 + 10;
     
-    float result = height + (CELL_CONTENT_MARGIN * 2);
-    NSLog(@"%d : %f", indexPath.row, height);
-    return result;
+    float height = MAX(neededHeight, 44.0f);
+    
+    NSLog(@"final height is : %f", height);
+    return height;
 }
 
 /*
